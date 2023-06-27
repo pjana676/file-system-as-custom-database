@@ -26,6 +26,11 @@ class UserMasterService {
         const filePath = path.join(databaseFolderPath, `${this.collectionName}.json`);
 
         try {
+            if (!fs.existsSync(filePath)) {
+                fs.writeFileSync(filePath, "[]");
+                console.log(`Created empty ${this.collectionName} collection.`);
+            }
+
             const fileData = fs.readFileSync(filePath, 'utf8');
             return JSON.parse(fileData);
         } catch (error) {
@@ -82,7 +87,7 @@ class UserMasterService {
             const filename = referenceData['file-name'];
             const filePath = path.join(this.collectionFolderPath, filename);
             const existingData = this.getReference(userId)
-            fs.writeFileSync(filePath, JSON.stringify({...existingData, ...reference}, null, 2));
+            fs.writeFileSync(filePath, JSON.stringify({ ...existingData, ...reference }, null, 2));
             console.log(`Reference updated for user ID: ${userId}`);
         } else {
             console.log(`No reference found for user ID: ${userId}`);
