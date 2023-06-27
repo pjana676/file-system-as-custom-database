@@ -1,0 +1,26 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Built custom database [like MongoDB] using JSON file system. Using NodeJS as database engine and FS module to stream",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pjana676/file-system-as-custom-database.git"
+  },
+  "keywords": [
+    "databaseEngine",
+    "fileSystem"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pjana676/file-system-as-custom-database/issues"
+  },
+  "homepage": "https://github.com/pjana676/file-system-as-custom-database#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
