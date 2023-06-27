@@ -1,5 +1,5 @@
 const express = require('express');
-const UserMasterService = require('./databaseEngine');
+const CollectionService = require('./databaseEngine');
 
 const app = express();
 
@@ -10,7 +10,7 @@ app.use(express.json());
 
 
 // Create an instance of UserMasterService for user references
-const userMaster = new UserMasterService('userMaster');
+const userMaster = new CollectionService('userMaster');
 
 // Create a new user reference
 app.post('/users', (req, res) => {
@@ -50,7 +50,7 @@ app.delete('/users/:id', (req, res) => {
 
 // Get the list of all users
 app.get('/users', (req, res) => {
-    const users = userMaster.getAllUsers();
+    const users = userMaster.getAllDocs();
     res.json(users);
   });
 
